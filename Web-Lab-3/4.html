@@ -40,7 +40,6 @@
             return result;
         }
 
-        // Create table
         let tableHTML = "<table>";
         tableHTML += "<tr><th>Number</th><th>Factorial</th></tr>";
 
@@ -54,7 +53,6 @@
         tableHTML += "</table>";
         document.getElementById("tableContainer").innerHTML = tableHTML;
 
-        // Button click to calculate factorial
         document.getElementById("findFactorialBtn").addEventListener("click", function () {
             let input = prompt("Enter a number:");
             let number = parseInt(input);
