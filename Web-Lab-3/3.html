@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <h1>Assignment 3</h1>
+
+    <div id="result">
+    </div>
+
+    <script>
+        const num1String = prompt("Enter first number:");
+        const num2String = prompt("Enter second number:");
+        const num3String = prompt("Enter third number:");
+
+        const num1 = parseFloat(num1String);
+        const num2 = parseFloat(num2String);
+        const num3 = parseFloat(num3String);
+
+        if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+            alert("Invalid input.");
+        } else {
+            const maximum = Math.max(num1, num2, num3);
+            const minimum = Math.min(num1, num2, num3);
+
+            let output = "First number: " + num1 + "<br>";
+            output += "Second number: " + num2 + "<br>";
+            output += "Third number: " + num3 + "<br>";
+            output += "Maximum is: " + maximum + "<br>";
+            output += "Minimum is: " + minimum + "<br>";
+            output += "<br>Click Refresh (or Reload) to run the script again";
+
+            document.getElementById('result').innerHTML = output;
+        }
+    </script>
+
+</body>
+
+</html>

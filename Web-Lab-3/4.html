@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bonus: Factorial Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Factorials of 0 to 10</h1>
+    <button id="findFactorialBtn">Find factorial for...</button>
+
+    <div id="tableContainer">
+        </div>
+
+    <script>
+        function calculateFactorial(n) {
+            if (n === 0) {
+                return 1;
+            }
+            if (n < 0) {
+                return NaN;
+            }
+            
+            let result = 1;
+            for (let i = 1; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+                
+        let tableHTML = '<table>';
+        tableHTML += '<tr><th>Number</th><th>Factorial</th></tr>';
+
+        for (let i = 0; i <= 10; i++) {
+            const factorial = calculateFactorial(i);
+            tableHTML += '<tr>';
+            tableHTML += '<td>' + i + '</td>';
+            tableHTML += '<td>' + factorial.toLocaleString('en-US') + '</td>'; // Use toLocaleString for commas
+            tableHTML += '</tr>';
+        }
+
+        tableHTML += '</table>';
+        document.getElementById('tableContainer').innerHTML = tableHTML;
+        
+        document.getElementById('findFactorialBtn').addEventListener('click', function() {
+            const input = prompt("Enter The Number");
+
+            if (input === null) {
+                return;
+            }
+
+            const number = parseInt(input);
+
+            if (isNaN(number) || number < 0) {
+                alert("Please enter a valid non-negative integer.");
+                return;
+            }
+
+            const result = calculateFactorial(number);
+
+            let displayResult;
+            if (number > 20) {
+                 try {
+                    let bigResult = 1n; 
+                    for (let i = 1n; i <= BigInt(number); i++) {
+                        bigResult *= i;
+                    }
+                    displayResult = bigResult.toString();
+                } catch(e) {
+                    displayResult = "Approximate: " + result.toString();
+                }
+            } else {
+                displayResult = result.toLocaleString('en-US');
+            }
+            
+            alert("Factorial of " + number + " is:\n" + displayResult);
+        });
+
+    </script>
+
+</body>
+</html>

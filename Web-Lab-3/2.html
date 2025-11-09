@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            min-width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Assignment 2</h1>
+
+    <div id="listContainer"></div>
+
+    <script>
+        function displayList(listTitle) {
+            let html = '<div class="container">';
+            html += '<h2>' + listTitle + '</h2>';
+
+            html += '<ol>';
+            html += '<li>List item 1</li>';
+            html += '<li>List item 2</li>';
+            html += '<li>List item 3</li>';
+            html += '</ol>';
+
+            html += '<p><small>Click Refresh (or Reload) to run the script again</small></p>';
+            html += '</div>';
+
+            document.getElementById('listContainer').innerHTML = html;
+        }
+
+        let input = prompt("Select a list style:\n1 for Bullet\n2 for Numbered\n3 for Lettered");
+        const choice = parseInt(input);
+
+        if (choice === 1) {
+            displayList("List Style: Bullet (shown as ordered list)");
+        } else if (choice === 2) {
+            displayList("List Style: Numbered");
+        } else if (choice === 3) {
+            displayList("List Style: Lettered");
+        } else {
+            alert("Invalid input.");
+        }
+
+    </script>
+
+</body>
+
+</html>
